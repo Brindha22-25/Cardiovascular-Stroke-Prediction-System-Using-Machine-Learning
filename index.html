@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cardiovascular Stroke Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        @media screen and (max-width: 768px) {
+            form {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter Your Details</h2>
+    <form action="/predict" method="post">
+        <label>Age:</label><br>
+        <input type="number" name="age" min="1" required><br>
+        
+        <label>Gender:</label><br>
+        <select name="gender" required>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+        </select><br>
+        
+        <label>Chest Pain Type:</label><br>
+        <input type="number" name="chestpain" min="0" max="3" required><br>
+        
+        <label>Resting Blood Pressure:</label><br>
+        <input type="number" name="restingBP" min="0" required><br>
+        
+        <label>Serum Cholesterol:</label><br>
+        <input type="number" name="serumcholestrol" min="0" required><br>
+        
+        <label>Fasting Blood Sugar:</label><br>
+        <select name="fastingbloodsugar" required>
+            <option value="1">True</option>
+            <option value="0">False</option>
+        </select><br>
+        
+        <label>Resting Electrocardiographic Results:</label><br>
+        <input type="number" name="restingrelectro" min="0" max="2" required><br>
+        
+        <label>Maximum Heart Rate Achieved:</label><br>
+        <input type="number" name="maxheartrate" min="0" required><br>
+        
+        <label>Exercise Induced Angina:</label><br>
+        <select name="exerciseangia" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+        
+        <label>Oldpeak (ST depression induced by exercise):</label><br>
+        <input type="number" step="any" name="oldpeak" min="0" required><br>
+        
+        <label>Slope of the peak exercise ST segment:</label><br>
+        <input type="number" name="slope" min="0" max="2" required><br>
+        
+        <label>Number of major vessels (0-3):</label><br>
+        <input type="number" name="noofmajorvessels" min="0" max="3" required><br><br>
+        
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
